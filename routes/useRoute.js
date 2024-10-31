@@ -3,6 +3,7 @@ import {createUser, deleteUser, getUser, getUserById, updateUser} from '../contr
 import { create, fetchCourse } from '../controller/courseController.js';
 import { createStudent, deleteStudent, getStudentById, updateStudent } from '../controller/studentController.js';
 import { createRoom, deleteRoom, getRoomById, updateRoom } from '../controller/roomController.js';
+import { login, register } from '../controller/authController.js';
 const router = express.Router();
 
 router.get('/getUser', getUser);
@@ -28,5 +29,8 @@ router.get('/courses/:courseId/students/:studentId/rooms/:roomId', getRoomById)
 router.put('/courses/:courseId/students/:studentId/rooms/:roomId', updateRoom)
 
 
+//auth
+router.post('/register', register);
+router.post('/login', login);
 
 export default router;
