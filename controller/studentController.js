@@ -65,6 +65,7 @@ export const updateStudent = async (req, res) => {
 };
 
 
+
 export const deleteStudent = async (req, res) => {
     const { courseId, studentId } = req.params; 
 
