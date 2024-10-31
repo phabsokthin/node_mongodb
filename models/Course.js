@@ -1,17 +1,30 @@
 import mongoose, { Schema } from "mongoose";
 
-const studentDocument = new Schema({
-    studentName:{
-        type: String,
-        require: true
-    },
-    sex: {
+
+const roomNestedDocument = new Schema({
+    roomName: {
         type: String,
         require: true
     },
     detail: {
         type: String,
         require: true
+    }
+})
+
+
+const studentDocument = new Schema({
+    studentName:{
+        type: String,
+        require: true
+    },
+    detail: {
+        type: String,
+        require: true
+    },
+    rooms: {
+        type: [roomNestedDocument],
+        require: false,
     }
 })
 
