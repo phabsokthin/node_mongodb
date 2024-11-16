@@ -12,7 +12,6 @@ const roomNestedDocument = new Schema({
     }
 })
 
-
 const studentDocument = new Schema({
     studentName:{
         type: String,
@@ -44,6 +43,7 @@ const courseDocument = new Schema({
 }, {
     timestamps: true
 })
+
 
 
 export const Course = mongoose.models.Course || mongoose.model('Course', courseDocument);

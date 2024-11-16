@@ -4,6 +4,10 @@ import { create, fetchCourse } from '../controller/courseController.js';
 import { createStudent, deleteStudent, getStudentById, updateStudent } from '../controller/studentController.js';
 import { createRoom, deleteRoom, getRoomById, updateRoom } from '../controller/roomController.js';
 import { login, register } from '../controller/authController.js';
+import { createProduct } from '../controller/productController.js';
+import { createPurchase, deletePurchase, updatePurchase } from '../controller/purchaseController.js';
+import { sellMultipleProducts, sellProduct } from '../controller/sellController.js';
+import { returnMultipleSales } from '../controller/saleReturnController.js';
 const router = express.Router();
 
 router.get('/getUser', getUser);
@@ -32,5 +36,21 @@ router.put('/courses/:courseId/students/:studentId/rooms/:roomId', updateRoom)
 //auth
 router.post('/register', register);
 router.post('/login', login);
+
+//product
+router.post('/createProduct', createProduct)
+
+//purchase
+router.post('/createPurchase/:productId', createPurchase)
+router.delete('/product/:productId/purchase/:purchaseId', deletePurchase)
+router.put('/product/:productId/purchase/:purchaseId', updatePurchase)
+
+//sell
+
+router.post('/product/:productId/sell', sellProduct)
+// router.post('/product/:productId/sell', sellMultipleProducts)
+router.post('/product/sell', sellMultipleProducts);
+router.post('/product/sellReturn', returnMultipleSales);
+
 
 export default router;
